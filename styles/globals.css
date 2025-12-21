@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hollywoodStarfire {
+  font-family: "Hollywood Starfire", sans-serif;
+}
+
+.rockwellNova {
+  font-family: "Rockwell Nova Extra Bold", sans-serif;
+}
+
+.montreal {
+  font-family: "Montreal", sans-serif;
+}
+
+html {
+  overflow-x: clip;
+}
