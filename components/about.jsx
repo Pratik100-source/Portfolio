@@ -23,10 +23,10 @@ export default function About() {
   ];
 
   return (
-    <div className="flex flex-col text-[#f8f6f7]">
+    <div className="flex flex-col text-background bg-foreground">
       {/* Intro Section */}
-      <div className="flex flex-col items-center h-auto w-[40%] py-6 justify-center mx-auto">
-        <h1 className="text-5xl font-bold antialiased rockwellNova tracking-wider">
+      <div className="flex flex-col items-center h-auto md:w-[40%] py-6 justify-center mx-auto ">
+        <h1 className="lg:text-5xl md:text-4xl text-3xl  font-bold antialiased rockwellNova tracking-wider">
           WHAT I DO ?
         </h1>
         <p className="text-center mt-4 px-4 tracking-wider">
@@ -43,7 +43,7 @@ export default function About() {
           <motion.div
             key={section.key}
             className={` sticky flex flex-row px-8 py-10 
-                        w-full h-[80vh] transition-colors duration-500 bg-[#080806]`}
+                        w-full h-[80vh] transition-colors duration-500 bg-foreground `}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -54,7 +54,7 @@ export default function About() {
             }}
             style={{
               borderTop: "1px solid #525252",
-               zIndex: sections.length + idx, 
+              zIndex: sections.length + idx,
               top: `calc(8rem + ${idx * 6}rem)`, // dynamic stacking offset
               marginBottom: `${idx === 0 ? 15 : 8}rem`, // adjust as needed
             }}

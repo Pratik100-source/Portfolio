@@ -1,4 +1,5 @@
 "use client";
+import Hamburger from "hamburger-react";
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import SplashScreen from "@/components/splashScreen";
@@ -11,48 +12,39 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
+import ModeToggle from "@/components/ui/toggle";
 
 const MotionImage = motion(Image);
 
 export default function Home() {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const isInView1 = useInView(ref1, { once: false, amount: 0.1 });
-  const isInView2 = useInView(ref2, { once: false, amount: 0.1 });
-  const isInView3 = useInView(ref3, { once: false, amount: 0.5 });
-  const [bg, setBg] = useState("#f8f6f7");
+  const [isOpen, setOpen] = useState(false);
+  useEffect(() => {
+    document.documentElement.classList.toggle("overflow-hidden", isOpen);
+  }, [isOpen]);
 
- useEffect(() => {
-  if (isInView3) setBg("#f8f6f7");
-  else if (isInView2) setBg("#080806");
-  else if (isInView1) setBg("#f8f6f7");
-}, [isInView1, isInView2, isInView3]);
   return (
-    <SplashScreen>
-    
+    // <SplashScreen>
     <motion.div
-      className="flex flex-col max-w-screen h-auto"
-      animate={{ backgroundColor: bg }}
+      className="flex flex-col h-auto bg-background text-foreground"
       transition={{
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1], // smooth butter cubic easing
         type: "tween",
       }}
     >
-      <div className="w-screen h-auto" ref={ref1}>
-        <div className="flex z-40 overflow-x-hidden w-full h-auto items-center justify-center data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 shadow-md ">
+      <div className="w-screen h-auto bg-secondary-background/50 text-foreground">
+        <div className="bg-secondary-background/40 text-foreground border-b-1 shadow-2x flex z-40  w-full h-auto items-center justify-center  fixed top-0 ">
           <motion.nav
-            className={`z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center overflow-x-hidden justify-between h-[4rem] max-w-[1024px] ${
-              bg === "#f8f6f7" ? "text-black" : "text-white"
-            }`}
+            className={
+              "z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center  justify-between h-[4rem] max-w-[1024px]"
+            }
           >
             <ul>
               <p className="text-2xl antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 tracking-wider bg-clip-text text-transparent whitespace-nowrap">
                 &lt;Pratik Panthi/&gt;
               </p>
             </ul>
-            <ul className="flex space-x-4">
+            <ul className=" hidden lg:flex space-x-4">
               <li>
                 <Link href="/" className="hover:text-sky-700 antialiased">
                   Home
@@ -84,8 +76,57 @@ export default function Home() {
                   Contact
                 </Link>
               </li>
+              <li className="bg-none border-none border-r-0 border-s-0 pt-0.5 item-center">
+                <ModeToggle></ModeToggle>
+              </li>
             </ul>
+            {/* Hamburger */}
+            <div className="lg:hidden">
+              <Hamburger toggled={isOpen} toggle={setOpen} />
+            </div>
           </motion.nav>
+
+          {/* Mobile Menu */}
+          {isOpen && (
+            <motion.div
+              initial={{ x: "+100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="lg:hidden fixed top-[4rem] left-0 w-full bg-secondary-background/90 backdrop-blur-sm shadow-xl h-full "
+            >
+              <ul className="flex flex-col items-center gap-6 py-8 text-lg">
+                <li className=" hover:bg-sky-700 w-full text-center ">
+                  <Link href="/" onClick={() => setOpen(false)}>
+                    Home
+                  </Link>
+                </li>
+                <li className=" hover:bg-sky-700 w-full text-center">
+                  <Link href="/about" onClick={() => setOpen(false)}>
+                    About
+                  </Link>
+                </li>
+                <li className="hover:bg-sky-700 w-full text-center">
+                  <Link href="/projects" onClick={() => setOpen(false)}>
+                    Projects
+                  </Link>
+                </li>
+                <li className="hover:bg-sky-700 w-full text-center">
+                  <Link href="/resume" onClick={() => setOpen(false)}>
+                    Resume
+                  </Link>
+                </li>
+                <li className="hover:bg-sky-700 w-full text-center">
+                  <Link href="/contact" onClick={() => setOpen(false)}>
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <ModeToggle />
+                </li>
+              </ul>
+            </motion.div>
+          )}
         </div>
         <div className="flex flex-col lg:flex-row min-h-screen py-2 max-w-screen">
           <motion.div
@@ -100,7 +141,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col px-5 pt-20 lg:pl-40 lg:pt-40 w-full lg:w-7/12 h-auto"
           >
-            <h1 className="rockwellNova font-medium text-2xl sm:text-3xl md:text-4xl antialiased tracking-wider">
+            <h1 className="rockwellNova font-medium text-2xl sm:text-3xl md:text-4xl antialiased tracking-wider text-foreground">
               Hey! I am Pratik
             </h1>
             <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl antialiased tracking-wider mt-2">
@@ -150,19 +191,25 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="about" ref={ref2}   className="w-screen h-auto overflow-y-visible" >
+      <div id="about" className=" h-auto overflow-y-visible">
         <About />
       </div>
-      <div id="projects" className="pt-20 w-screen h-screen" >
+      <div
+        id="projects"
+        className=" h-auto  text-foreground bg-secondary-background/50"
+      >
         <Project />
       </div>
-      <div id="skills" className="pt-20 w-screen h-screen">
+      <div
+        id="skills"
+        className="pt-20  pb-10 bg-secondary-background/50 text-foreground"
+      >
         <Skill />
       </div>
-      <div id="footer" ref={ref3} className="pt-20 w-screen h-screen">
+      <div id="footer" className="w-screen text-foreground">
         <Footer />
       </div>
     </motion.div>
-    </SplashScreen>
+    // </SplashScreen>
   );
 }
