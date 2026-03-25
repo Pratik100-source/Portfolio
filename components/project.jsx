@@ -30,14 +30,14 @@ export default function Project() {
     },
   ];
   return (
-    <div className="flex gap-3 flex-col md:items-center pt-[5rem] pb-[5rem] px-30 py-5 md:pl-0 md:pr-0">
+    <div className="flex gap-3 flex-col md:items-center pt-[2rem] pb-[15rem] ">
       <div className="max-w-6xl md:mx-auto">
-        <div className="pt-5 pb-5 flex md:justify-center">
-          <span className="text-3xl antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 -tracking-normal bg-clip-text text-transparent whitespace-nowrap">
+        <div className="pb-[3rem] flex md:justify-center">
+          <span className="text-3xl px-5 md:px-0 antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 -tracking-normal bg-clip-text text-transparent whitespace-nowrap">
             Projects and more
           </span>
         </div>
-        <div className="grid md:grid-cols-3 grid-cols-1 margin-auto w-full gap-5">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:margin-auto w-full gap-5 px-5 md:px-0">
           {projects.map((project, index) => {
             let initialAnimation;
 
@@ -54,7 +54,7 @@ export default function Project() {
                 key={project.key}
                 initial={initialAnimation}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ type: "spring", stiffness: 80, damping: 15 }}
               >
                 <CardComponent

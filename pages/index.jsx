@@ -32,7 +32,7 @@ export default function Home() {
         type: "tween",
       }}
     >
-      <div className="w-screen h-auto bg-secondary-background/50 text-foreground">
+      <div className="w-full h-auto bg-secondary-background/50 text-foreground">
         <div className="bg-secondary-background/40 text-foreground border-b-1 shadow-2x flex z-40  w-full h-auto items-center justify-center  fixed top-0 ">
           <motion.nav
             className={
@@ -85,7 +85,6 @@ export default function Home() {
               <Hamburger toggled={isOpen} toggle={setOpen} />
             </div>
           </motion.nav>
-
           {/* Mobile Menu */}
           {isOpen && (
             <motion.div
@@ -93,7 +92,7 @@ export default function Home() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="lg:hidden fixed top-[4rem] left-0 w-full bg-secondary-background/90 backdrop-blur-sm shadow-xl h-full "
+              className="lg:hidden fixed top-[4rem] left-0 bg-secondary-background/90 backdrop-blur-sm shadow-xl h-full "
             >
               <ul className="flex flex-col items-center gap-6 py-8 text-lg">
                 <li className=" hover:bg-sky-700 w-full text-center ">
@@ -128,7 +127,7 @@ export default function Home() {
             </motion.div>
           )}
         </div>
-        <div className="flex flex-col lg:flex-row min-h-screen py-2 max-w-screen">
+        <div className="flex flex-col lg:flex-row min-h-screen md:py-2 py-[3rem] max-w-full">
           <motion.div
             initial={{ y: 40 }}
             whileInView={{ y: 0 }}
@@ -186,7 +185,7 @@ export default function Home() {
                 damping: 10,
                 duration: 1,
               }}
-              className="w-100 h-auto sm:w-100 sm:h-auto md:w-100 md:h-auto lg:w-full lg:h-auto lg:object-contain"
+              className="w-full h-auto sm:w-full sm:h-auto md:w-[50%] md:h-auto lg:w-full lg:h-auto lg:object-contain"
             />
           </div>
         </div>
@@ -194,19 +193,13 @@ export default function Home() {
       <div id="about" className=" h-auto overflow-y-visible">
         <About />
       </div>
-      <div
-        id="projects"
-        className=" h-auto  text-foreground bg-secondary-background/50"
-      >
+      <div id="projects" className=" h-auto  text-foreground bg-background">
         <Project />
       </div>
-      <div
-        id="skills"
-        className="pt-20  pb-10 bg-secondary-background/50 text-foreground"
-      >
+      <div id="skills" className=" bg-secondary-background/50 text-foreground">
         <Skill />
       </div>
-      <div id="footer" className="w-screen text-foreground">
+      <div id="footer" className="w-full text-foreground">
         <Footer />
       </div>
     </motion.div>

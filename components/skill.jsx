@@ -52,11 +52,11 @@ export default function Skill() {
   ];
   return (
     <>
-      <div className="flex flex-col md:items-center gap-5 pl-10 pr-10 md:pl-0 md:pr-0">
-        <span className="text-3xl antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 tracking-wider bg-clip-text text-transparent whitespace-nowrap ">
+      <div className="flex flex-col md:items-center gap-5 pl-5 pr-5 md:pl-0 md:pr-0 pt-[2rem] pb-[8rem]">
+        <span className="pb-[2rem] text-3xl antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 tracking-wider bg-clip-text text-transparent whitespace-nowrap ">
           Skills and more
         </span>
-        <div className="grid md:grid-cols-6 md:gap-7 sm:grid-cols-3 sm:gap-5 grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-4 md:gap-7 sm:grid-cols-3 sm:gap-5 grid-cols-2 gap-5">
           {skills.map((skill, index) => {
             let initialAnimation;
             let width;
@@ -83,7 +83,7 @@ export default function Skill() {
                 }}
                 initial={initialAnimation}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   type: "spring",
                   stiffness: 80,

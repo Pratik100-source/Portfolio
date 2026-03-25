@@ -29,7 +29,7 @@ export default function About() {
         <h1 className="lg:text-5xl md:text-4xl text-3xl  font-bold antialiased rockwellNova tracking-wider">
           WHAT I DO ?
         </h1>
-        <p className="text-center mt-4 px-4 tracking-wider">
+        <p className="text-center mt-4 px-4 text-[0.85rem] md:text-[0.85rem] tracking-wider">
           A passionate Computer Science student and aspiring Full Stack
           Developer with a strong foundation in modern web technologies. I
           combine technical expertise with creative problem-solving to build
@@ -42,7 +42,7 @@ export default function About() {
         {sections.map((section, idx) => (
           <motion.div
             key={section.key}
-            className={` sticky flex flex-row px-8 py-10 
+            className={` sticky flex flex-row md:px-8 px-5 py-10 
                         w-full h-[80vh] transition-colors duration-500 bg-foreground `}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,22 +60,22 @@ export default function About() {
             }}
           >
             {/* Left Column */}
-            <div className="w-[40%] pl-8 text-4xl montreal font-bold tracking-wider">
+            <div className="w-[25%]  md:w-[40%] md:pl-8 pl-1 md:text-4xl text-2xl montreal font-bold tracking-wider">
               ({section.key})
             </div>
 
             {/* Right Column */}
-            <div className="flex flex-col w-[60%]">
+            <div className="flex flex-col w-[85%]">
               <div>
-                <p className="text-4xl font-bold montreal tracking-wider">
+                <p className="md:text-4xl text-[1.3rem] font-bold montreal tracking-wider">
                   {section.title}
                 </p>
-                <p className="pt-5 text-[1.1rem] w-[55%]">
+                <p className="md:pt-5 pt-2 text-[1.1rem] md:w-[55%]">
                   {section.description}
                 </p>
               </div>
 
-              <div className="pt-5 text-[1.5rem] font-semibold montreal">
+              <div className="pt-5 md:text-[1.5rem] font-semibold montreal">
                 <ul>
                   <li className="border-b pb-3 border-b-neutral-600">
                     <span className="text-[1rem] font-light">
