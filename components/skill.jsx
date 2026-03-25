@@ -56,7 +56,7 @@ export default function Skill() {
         <span className="pb-[2rem] text-3xl antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 tracking-wider bg-clip-text text-transparent whitespace-nowrap ">
           Skills and more
         </span>
-        <div className="grid md:grid-cols-4 md:gap-7 sm:grid-cols-3 sm:gap-5 grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-4 lg:grid-cols-6 md:gap-7 sm:grid-cols-3 sm:gap-5 grid-cols-2 gap-5">
           {skills.map((skill, index) => {
             let initialAnimation;
             let width;
