@@ -30,7 +30,7 @@ export default function Project() {
     },
   ];
   return (
-    <div className="flex gap-3 flex-col md:items-center pt-[2rem] pb-[15rem] ">
+    <div className="flex gap-3 flex-col md:items-center pt-[2rem] pb-[15rem] bg-secondary-background/50 ">
       <div className="max-w-6xl md:mx-auto">
         <div className="pb-[3rem] flex md:justify-center">
           <span className="text-3xl px-5 md:px-0 antialiased font-semibold font-yellowTail bg-gradient-to-b from-fuchsia-500 to-cyan-500 -tracking-normal bg-clip-text text-transparent whitespace-nowrap">

@@ -33,7 +33,7 @@ export default function Home() {
       }}
     >
       <div className="w-full h-auto bg-secondary-background/50 text-foreground">
-        <div className="bg-secondary-background/40 text-foreground border-b-1 shadow-2x flex z-40  w-full h-auto items-center justify-center  fixed top-0 ">
+        <div className="bg-secondary-background text-foreground border-b-1 shadow-2x flex z-40  w-full h-auto items-center justify-center  fixed top-0 ">
           <motion.nav
             className={
               "z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center  justify-between h-[4rem] max-w-[1024px]"
@@ -92,7 +92,7 @@ export default function Home() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="lg:hidden fixed top-[4rem] left-0 bg-secondary-background/90 backdrop-blur-sm shadow-xl h-full "
+              className="lg:hidden fixed top-[4rem] left-0 bg-secondary-background/90 backdrop-blur-sm shadow-xl h-full w-full "
             >
               <ul className="flex flex-col items-center gap-6 py-8 text-lg">
                 <li className=" hover:bg-sky-700 w-full text-center ">
