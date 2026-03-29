@@ -7,7 +7,11 @@ function Card({ className, ...props }) {
     <div
       data-slot="card"
       className={cn(
-        " bg-[#0f0017]  flex flex-col relative w-[190px] h-[254px] gap-6 rounded-xl border p-[12px] shadow-sm",
+        "bg-white dark:bg-[#0F172A] text-gray-900 dark:text-gray-100",
+        "flex flex-col relative w-[260px] h-[320px] gap-4",
+        "rounded-2xl border border-gray-200 dark:border-gray-800",
+        "p-4 shadow-md hover:shadow-xl transition-all duration-300",
+        "hover:-translate-y-1",
         className,
       )}
       {...props}
@@ -19,10 +23,7 @@ function CardHeader({ className, ...props }) {
   return (
     <div
       data-slot="card-header"
-      className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className,
-      )}
+      className={cn("flex flex-col gap-1", className)}
       {...props}
     />
   );
@@ -32,7 +33,10 @@ function CardTitle({ className, ...props }) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none text-white/85 font-semibold", className)}
+      className={cn(
+        "text-lg font-semibold text-gray-900 dark:text-white",
+        className,
+      )}
       {...props}
     />
   );
@@ -42,12 +46,14 @@ function CardDescription({ className, ...props }) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn(
+        "text-sm text-gray-500 dark:text-gray-400 leading-relaxed",
+        className,
+      )}
       {...props}
     />
   );
 }
-
 function CardAction({ className, ...props }) {
   return (
     <div
@@ -65,7 +71,7 @@ function CardContent({ className, ...props }) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-6", className)}
+      className={cn("flex-1", className)}
       {...props}
     />
   );
@@ -75,7 +81,7 @@ function CardFooter({ className, ...props }) {
   return (
     <div
       data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      className={cn("flex justify-between items-center mt-auto", className)}
       {...props}
     />
   );

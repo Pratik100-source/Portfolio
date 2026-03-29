@@ -193,10 +193,13 @@ export default function Home() {
       <div id="about" className=" h-auto overflow-y-visible">
         <About />
       </div>
-      <div id="projects" className=" h-auto  text-foreground bg-background">
+      <div
+        id="projects"
+        className=" h-auto  text-foreground bg-secondary-background"
+      >
         <Project />
       </div>
-      <div id="skills" className=" bg-secondary-background/50 text-foreground">
+      <div id="skills" className=" bg-secondary-background text-foreground">
         <Skill />
       </div>
       <div id="footer" className="w-full text-foreground">

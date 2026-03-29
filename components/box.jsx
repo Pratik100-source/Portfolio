@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export function CardComponent({ title, description, image, link }) {
   return (
-    <Card className="w-[22rem] hover:scale-[1.02] transition-transform duration-300 ease-in-out h-[27rem]">
+    <Card className="w-[22rem] h-[27rem] transform transition-all duration-500 hover:scale-105 hover:-rotate-1 cursor-pointer">
       <CardHeader className="flex flex-col h-full">
         <Image
           src={image}
@@ -24,18 +24,14 @@ export function CardComponent({ title, description, image, link }) {
       </CardHeader>
       <CardFooter className="flex-row gap-2">
         <section className="flex-1">
-          <Button type="submit" className="w-100%">
-            Live demo
-          </Button>
+          <button className="cursor-pointer px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition">
+            Live Demo
+          </button>
         </section>
         <section className="flex-1 align-right">
-          <Button
-            variant="outline"
-            className="w-50% float-right cursor-pointer"
-            onClick={() => window.open(link, "_blank")}
-          >
+          <button className="cursor-pointer px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
             View More
-          </Button>
+          </button>
         </section>
       </CardFooter>
     </Card>
