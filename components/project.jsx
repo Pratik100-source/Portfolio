@@ -1,34 +1,9 @@
 import React from "react";
 import { CardComponent } from "./box";
 import { motion } from "framer-motion";
+import { projects } from "@/data/projects";
 
 export default function Project() {
-  const projects = [
-    {
-      key: "01",
-      title: "Project One",
-      description:
-        "Is a digital healthcare platform that connects patients with verified medical professionals for on-demand and scheduled services, including in-person care and online consultations, with secure booking, communication, and payments.",
-      image: "/CareAssist.png",
-      link: "https://care-assist-vert.vercel.app/",
-    },
-    {
-      key: "02",
-      title: "Project Two",
-      description:
-        "Is a digital healthcare platform that connects patients with verified medical professionals for on-demand and scheduled services, including in-person care and online consultations, with secure booking, communication, and payments.",
-      image: "/CareAssist.png",
-      link: "",
-    },
-    {
-      key: "03",
-      title: "Project Three",
-      description:
-        "Is a digital healthcare platform that connects patients with verified medical professionals for on-demand and scheduled services, including in-person care and online consultations, with secure booking, communication, and payments.",
-      image: "/CareAssist.png",
-      link: "",
-    },
-  ];
   return (
     <div className="flex gap-3 flex-col md:items-center pt-[2rem] pb-[15rem] bg-secondary-background/50 ">
       <div className="max-w-6xl md:mx-auto">
@@ -59,9 +34,10 @@ export default function Project() {
               >
                 <CardComponent
                   title={project.title}
-                  description={project.description}
+                  description={project.shortDescription}
                   image={project.image}
-                  link={project.link}
+                  liveUrl={project.liveUrl}
+                  slug={project.slug}
                 />
               </motion.div>
             );

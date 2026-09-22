@@ -7,8 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
-export function CardComponent({ title, description, image, link }) {
+export function CardComponent({ title, description, image, liveUrl, slug }) {
   return (
     <Card className="w-[22rem] h-[27rem] transform transition-all duration-500 hover:scale-105 hover:-rotate-1 cursor-pointer">
       <CardHeader className="flex flex-col h-full">
@@ -24,14 +25,24 @@ export function CardComponent({ title, description, image, link }) {
       </CardHeader>
       <CardFooter className="flex-row gap-2">
         <section className="flex-1">
-          <button className="cursor-pointer px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition">
-            Live Demo
-          </button>
+          {liveUrl ? (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block cursor-pointer px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition"
+            >
+              Live Demo
+            </a>
+          ) : null}
         </section>
         <section className="flex-1 align-right">
-          <button className="cursor-pointer px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          <Link
+            href={`/projects/${slug}`}
+            className="inline-block cursor-pointer px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          >
             View More
-          </button>
+          </Link>
         </section>
       </CardFooter>
     </Card>

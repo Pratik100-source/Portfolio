@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html className="dark">
+    <Html suppressHydrationWarning>
       <Head>
         <link
           href="https://fonts.cdnfonts.com/css/hollywood-starfire"
